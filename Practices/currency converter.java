@@ -13,7 +13,7 @@ import com.mashape.unirest.http.HttpResponse;
 
 public class rapidapi {
 	
-	public static char symbol(String country) throws URISyntaxException, IOException, InterruptedException
+	public static String symbol(String country) throws URISyntaxException, IOException, InterruptedException
 	{
 		HttpClient client =  HttpClient.newHttpClient();
 		HttpRequest httprequest =  HttpRequest.newBuilder()
@@ -28,7 +28,7 @@ public class rapidapi {
 		
 		
 		
-		return 'x';
+		return response.body();
 	}
 
 	public static void main(String[] args) {
@@ -64,11 +64,11 @@ public class rapidapi {
 			System.out.println("\tconverted money :" +new_amount);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
-			System.out.println("miscorrect input");
+			System.out.println(e);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("miscorrect input");
+			System.out.println(e);
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
